@@ -1,0 +1,203 @@
+%%%%%%%%% PROJECT DESCRIPTION  -- 15 pages (including Prior NSF Support)
+\setcounter{page}{1}
+\renewcommand{\thepage}{\arabic{page}}
+%\section{Project Description}
+
+\invisiblesection{Project Description}
+%The Project Description (including Results from Prior NSF Support, which is
+%limited to five pages) may not exceed 15 pages. Visual materials, including charts,
+%graphs, maps, photographs and other pictorial presentations are included in the
+%15-page limitation. PIs be cautioned that the project description must
+%be self-contained and that URLs that provide information related to the proposal
+%should not be used. \\
+%
+%All proposals to NSF are reviewed utilizing the two merit review criteria,
+%intellectual merit and broader impacts. \\
+%
+% The Project Description should provide a clear statement of the work 
+% to be undertaken and must include: objectives for the period of the proposed 
+% work and expected significance; relation to longer-term goals of the PI's 
+% project; and relation to the present state of knowledge in the field, 
+% to work in progress by the PI under other support and to work in progress 
+% elsewhere.
+
+\subsection{Motivation and Background\label{sec: motivation}}
+\changliu{Tentative title: Domain-specific benchmarks for industrial collaborative robots}
+
+Human-robot collaboration is one of the most promising field for future robotics. Instead of being isolated from humans, future robots are envisioned to interacting closely with humans to better serve, assist and collaborate with people in our daily lives across work, home and leisure.
+
+Recent advances in the robotics brings huge improvements of collaborative robots (co-robots), both in the hardware and in the software. Various methods have been proposed to ensure they work safely and efficiently with humans. \changliu{Need some literature review here. Point out several large research projects.}
+
+However, we observe the following two problems: 1) lack of domain-specific high-level intelligence; 2) lack of standard tools to guide and evaluate different designs.
+
+\paragraph*{Domain-specific knowledge is needed for high-level intelligence. }~
+To address fundamental problems of co-robots, a certain level of abstraction is needed in order for researchers to develop methodologies that cover a wide range of applications. The abstraction indeed creates a gap between the research problem and the specific real world application. \changliu{Give an example here.} However, as co-robots are to be deployed in the real world, the gap should be bridged at some point. Bringing domain-specific knowledge for high-level intelligence can help to narrow the gap \changliu{Need reference}. \changliu{Give another example here.}   
+We propose to equip the robot with the domain-specific knowledge, and enable fast adaptation and learning of domain-specific knowledge. 
+
+\paragraph*{Standard evaluation tools and benchmarks are needed to guide different designs. }~
+A co-robot is a complex system that consists of multiple interacting modules. A standard co-robot contains physical hardware module, perception module, planning module, and control module. Modules may have submodules. For example, in a planning module, there can be task planning submodule, motion planning submodule, etc. Different co-robots may have different architectures as well as different designs of corresponding modules. Those inconsistencies lead to several drawbacks. 1. It is difficult to \textbf{compare} different designs of co-robots, hence difficult to understand the sources of advantages or disadvantages of various designs, i.e., whether the advantage comes from the architecture or the method used in a specific module.
+2. It is difficult to \textbf{decompose} the complex system to allow researchers from different background to focus on advancing methodologies in the modules of their own expertise and then integrate state-of-the-art results of other parts into their systems. Significant gap in research schemes has been observed between perception community and control community. The co-robot solutions developed in perception community tend to use too simple control strategy and ignores the hardware limitations. The co-robot solutions developed in control community sometimes fail to take the advantage of solutions provided by perception community.
+3. It is difficult to \textbf{coordinate} different modules from the system perspective. The development of co-robots needs to integrate the results from different fields. However, we still lack a perspective and viable tool for system engineering. For example, if the overall system needs to achieve certain objective, what are the sub-objectives of different modules? How can we prove that once the sub-objectives are achieved, the overall objective of the system is then achieved?
+4. No \textbf{benchmark} problem has been introduced to provide fair comparison of different designs and guidance for new designs. Currently, different designs are tested in different customized scenarios, which greatly limits the transferability and reproducibility of technologies. The difficulty in developing a fair benchmark is that human robot collaboration is intrinsically highly stochastic and domain-specific.  
+We propose to establish a set of principles to evaluate and benchmark different designs of  co-robots in industrial environments.
+
+In summary, the goal of this project is two-folded. The first objective is to equip robot with high-level intelligence from domain-specific knowledge. The second objective is to develop and standardize evaluation methods and benchmarks for industrial co-robots.
+
+\subsection{Intellectual Merit}
+
+To achieve intelligent and efficient human-robot collaboration in industrial environments, we propose to 1) equip robot with high-level intelligence, 2) develop methods to evaluate different designs including module-wise verification, inter-modular verification, and system verification, and 3) develop benchmark systems (hardware involved) to validate human-robot collaborations in industrial settings.
+
+
+\subsection{Summary of the Proposed Work}
+
+
+
+\subsection{Technical Background / State of the Art}
+
+\subsubsection{High-level Intelligence}
+
+To improve efficiency of human robot interaction, a powerful planner is at the core of the high-level intelligence. If the system is autonomous, the planner should be able to schedule tasks online autonomously and responds flexibly to any explicit commands or implicit intentions on the side of the human user \cite{schrempf2005nove}. However, in industrial scenarios, the system is more common where we can predefine the courses of the human and robot actions, and often human worker has several alternative plans. In this case, one challenge lies in planning the robot action with uncertain knowledge of human intention. 
+
+A lot of system architectures are proposed to cope with this problem by integrating human intention recognition and the planner. 
+Schrempf et al. \cite{schrempf2005nove} suggest a framework for human robot interaction using human intention recognition with Dynamic Bayesian Networks (DBN). A planner uses minimum entropy to choose between competing human intentions and executes a hand-coded action from a fixed set. Similarly, in \cite{koppula2016anticipatory}, human is modeled through their low-level kinematics as well as their high-level intent. This allows the model to anticipate a belief about possible future human actions. Moreover, the human’s and robot’s behavior are modeled through an Markov decision process. In  the  work  of \cite{devin2016implemented},  starting  from  the  capability  of  the  robot  to permanently compute the spatial perspective of its partners and to track their activity, the robot adaptively manages the execution of shared  plans  in  a  context  of  humans  and  robots  performing  collaborative  objects  manipulation.  As  a result,  the  robot  is  able  to adapt to human’s decisions and actions and to inform them when needed  without  being  intrusive  by  giving (unnecessary)  information that the human can observe or infer by himself. Huang et al. \cite{huang2016anticipatory} propose a robot system that monitors its user's gaze, predicted his or her task intent based on observed gaze patterns, and performed anticipatory task actions according to its predictions. 
+
+Robot predicting and responding to human is neccesary, and it would be more productive if robot is proactive. \cite{baraglia2016initiative} shows that people collaborate best with a proactive robot which takes initiative, yielding better team fluency and high subjective ratings. \cite{devin2017decisions} even shows in which conditions the robot can determine when it has to take the decision by itself or leave it to its human partner. Thus, when a robot is taking the lead, it is also important for robot to act explicitly and predictably so that plans synthesized by the robot can be easily understood by humans when doing task planning. Zhang et al. \cite{zhang2017plan} use conditional random fields to learn the labeling scheme of human which is to associate abstract tasks with robot actions. Then, they use the learned model to label a new plan to compute its explicability and predictability. These measures can be used by robots to proactively choose or directly synthesize plans that are more explicable and predictable to 
+\subsubsection{Theoretical Evaluations}
+
+Apart from High-level intelligence, this work also aims to come up with a method to evaluate the performance of different Human-robot interactio (HRI) systems. The following sections cover evaluation on the theoretical aspect for both modular level and inter-modular level. 
+
+\paragraph{Modular-wise verification}~
+
+As mentioned in the motivation section, HRI system usually contains the following modules: perception module, planning module , and control module. In the perception module, human-intention and human-motion prediction are the two most important components. ... 
+
+The planning module can usually be decomposed into two sub-modules, task planning sub-module and motion planning sub-module. Task planning performance is evaluated by examining the time-efficiency \cite{foster1999influence}, i.e., the amount of time required to complete all of the tasks. On the other hand, motion planning performance is evaluated from a large verity of aspects: time-efficiency in terms of solving the motion planning problem, the range of change in the environment that the planning module is capable of coping with \cite{ratliff2009chomp}, and the energy-efficiency of the power consumed by the actuators \cite{mei2004energy}. Researches also proposed that in order to further increase efficiency, task-planning and motion planning should be done together. In \cite{garrett2015ffrob,mahmoudzadeh2016toward}, by incorporating the constraints from geometry and kinematics, these hybrid methods guarantees successful completion of task plans. The previous evaluation methods are applicable in these hybrid methods as well.  
+
+The control module contains the tracking controllers that allow the robot to carry out the motion planned by the planning module. Many of these controllers fall into the category of optimal feed-back controller. In \cite{kanjanawanishkul2009path, falcone2007predictive}, Model Predictive Control (MPC) is used for tracking purpose. As a result of a properly formulated MPC problem, the controllers are guaranteed to bring the tracking error to zero theoretically. Other commonly seen control methods that require empirical parameter-tuning are proposed \cite{kanayama1990stable, xian2004, niu2013barrier}. Stability of these control rules are proved through the use of a Liapunov function. Aside from theoretical guarantees, the performance of these control modules can also be evaluated by simply recording the tracking error.
+
+\paragraph{Inter-modular verification}~
+
+While each module in a robotic system can be evaluated separately, it is important to check whether these module can also work together effectively. Previously, researchers do not emphasize much on this aspect, however, since the technology for every module has been improved a lot through out the years, there is a bigger verity of modules we can choose from. Although there hasn't been much work focusing on this aspect in the robotics community, people in the autonomous driving area have been research on this for sometime. ...    
+
+\paragraph{System verification}~
+
+In the field of HRI, researchers tend to work toward building a comprehensive robotic system, therefore, evaluation methods regarding the whole system are also more commonly seen. In \cite{goodrich2008human}, the authors defined HRI systems as a system with several features: autonomy, information exchange, teamwork, adaptation, learning, training, task-shaping, and finding a unifying theme. With these features identified, the HRI system can be evaluated according each aspect. In \cite{steinfeld2006common}, the authors also highlight several features of HRI systems: navigation, perception, management, manipulation, and biasing effects. A list of detailed measures are also included in the paper. These measures are especially useful during the system design process. The authors also provide metrics the evaluate the HRI system: 1. Quantitative performance which takes account of the percentage of the mission that was accomplished and the time required to complete a task. 2. Subjective ratings which is used to assess the quality of the effort and is compiled from all stakeholders involved, both direct and indirect. 3. Appropriate utilization of mixed-initiative which infer the ability of the human-robot team to appropriately regulate who has control initiative. Similar ideas are also proposed in \cite{burke2004final,murphy2013survey}. One interesting point of examining the system as a whole is that we can evaluate the effect of human factor to the HRI system. In \cite{goodrich2008human}, the authors specify interaction time, mental workload, and situation awareness produced by the interaction between the human and the robot as the measures of efficiency. In \cite{steinfeld2006common}, interaction characteristics, persuasiveness, trust, engagement, and compliance are features for evaluation towards effects introduced by human. Some research especially focus on HRI system in industrial settings \cite{michalos2018method,takata2011human,chen2011assembly}. In \cite{michalos2018method}, the system is examined from many aspects that are more industry oriented: robot reach, strength criterion, robot payload, ergonomic criteria, cost, investment cost, floor space, time saturation, fatigue, and handling time that are quite different from the focus of academic HRI research.
+
+\subsubsection{Benchmarks in Industrial Settings}
+
+As technology improves, it is more and more clear that human-robot collaborative work space will be one of the common scenes in future factories. Therefore, having a stander benchmark to evaluate HRI systems in industrial settings has become important than ever before. Compare to benchmark system in industrial settings, benchmarks for domestic service robots
+have been around for a longer time \cite{wisspeintner2009robocup} from which some of the ideas are used in designing benchmarks for industrial settings later on.       
+
+\subsection{Prior Work by the Principal Investigator}
+
+\subsubsection{RSIS}
+
+\subsubsection{SERoCS}
+
+\subsubsection{Benchmarks}
+
+\subsection{Proposed Work}
+
+
+
+
+
+
+
+\subsection{Project Schedule}
+
+
+
+
+
+\subsection{Broader Impacts, Proposed Educational Plan, and Outreach}
+% As in the project summary, broader impacts must be called out separately 
+% in the project description.  You may be able to give more specific
+% examples, or discuss how you've previously achieved these impacts.
+% It should be similar, but not identical, to the Broader Impacts statement
+% in the project summary
+
+%\begin{wrapfigure}{r}{5cm}
+%\vspace{-18pt}
+%  \begin{center}
+%  \subfloat[The evaluation environment on Platform 1, Task a.2.2. The robot needs to pick the workpiece (marked as star) in the tray. The human is moving around.\label{fig: preliminary}]{
+%    \includegraphics[width=5cm]{src/environment}}\\
+%   \subfloat[Illustration of the resulting robot trajectory using the proposed robot brain.\label{fig: trajectory}]{\includegraphics[width=5cm]{src/trajectory}}
+%  \end{center}
+%  \vspace{-20pt}
+%  \caption{Preliminary study.}
+%  \vspace{-10pt}
+%\end{wrapfigure}
+
+
+\paragraph*{General}~
+
+\begin{wrapfigure}{R}{4.5cm}
+\vspace{-25pt}
+  \begin{center}
+    \includegraphics[width=4.5cm]{src/caldayphoto}
+  \end{center}
+  \vspace{-20pt}
+  \caption{Cal Day 2016, a PhD student of Prof. Tomizuka demonstrating assistive technologies to visitors.\label{fig: cal day}}
+  \vspace{-15pt}
+\end{wrapfigure}
+
+\paragraph*{Education Plan} ~
+PI teaches robotics, design, and control courses both at the undergraduate and graduate levels emphasizing both theoretical principles and issues arising in applications of theory. His research students engage in laboratory work to acquire and develop experimental skills necessary to build, measure, and validate these new designs. 
+
+\paragraph*{Involvement of Women and Minorities}~
+The PI has a strong record in recruiting individuals from underrepresented groups, including women. While he was the Executive Associate Dean of the College of Engineering at UC Berkeley,  he was in charge of Engineering Student Services, one emphasis of which was (and still is) to broaden participation of the underrepresented groups. He has supervised twelve women to the completion of their Ph.D.s and currently supervises the Ph.D. research of nine women. 
+
+
+\paragraph*{Outreach to Middle/High School Students}~
+We will perform outreach to K-12 students and their parents though various official events of the University such as Cal Day (see Fig.\ref{fig: cal day} below). 
+\paragraph*{Involvement of Undergraduate Students}~
+Undergraduate students regularly participate in research work in the PI's lab, working closely with graduate students in projects involving hands-on experience in the fields of robotics and human mechatronics. The experimental test setups for the proposed project will provide an ideal example of interdisciplinary research, and will be made available to our undergraduate laboratory courses. The budget does not include a stipend for undergraduate researchers. We plan to request an REU supplement to attract undergraduate students from underrepresented backgrounds to the project.
+
+
+
+\paragraph*{Broader Dissemination}~
+We will disseminate the results from this research through the following mechanisms: 
+(1) \textbf{Website}: Information about the group members, schedules of seminars, conferences, and workshops, copies of presentations, technical reports, code, and publications will be maintained at http://msc.berkeley.edu. The educational material, documentation, and the simulation platform developed will also be available through the website under an Open Source license. 
+(2) \textbf{Journals and Conference Proceedings}: Research papers will be submitted for wide dissemination to journals and conferences in the field, such as the International Journal of Robotics Research, IEEE Transactions on Control System Technology, IEEE Intelligent Systems, IEEE Transactions of Robotics, IFAC Automatica, and ASME Journal of Dynamic Systems, Measurement, and Control.
+(3) \textbf{Organized Laboratory Visits}: PI's MSC Lab regularly hosts various national and international student groups and visitors from universities and industry who will be presented with the results of the project.
+
+
+
+\subsection{Results From Prior NSF Support}
+% 5 pages or fewer of the 15 pages for entire description document.
+% include results from NSF grants received in the past 5 years.
+% If supported by more than one grant, choose the most relevant one.
+
+% For each grant, include: 
+%	(a) NSF award number, amount, dates of support 
+%	(b) The title of this project
+%	(c) Publications resulting from this research
+%	(d) Summary of the results of the completed work
+%	(e) A brief description of data samples available and other research products not described 	      elsewhere
+%	(f) For renewed support, a description of the relationship between the completed and 			      proposed work
+
+% Due to space limitations, it is often advisable to use citations rather
+% than putting the titles of the publications in the body 
+% of this section
+
+
+%\paragraph*{\textit{IDR/Collaborative Research: Monitoring and Mobility Assistance with Wireless Body Sensor Network and Mechatronic Actuation}} (CMMI-1013657, September 1, 2010 - August 31, 2015, \$333,307)
+%
+%\textbf{Intellectual Merit}: This project studied a networked mobile assistive system (NMAS) by integrating a physical assistive device, a high-speed real-time wireless network, and a body sensor network. Major accomplishments were: 1) Prototype NMAS, 2) Control algorithms (e.g., modified LQG, model preview control, communication DOB) for a network-based rehabilitation system to deal with packet loss and varying time delay, 3) A tele-monitoring system (integration of smart shoes, IMUs, and XBee/RTWiFi/WirelessHART wireless network) for high-speed and real-time gait phase detection, and 4) Sensor fusion algorithms (e.g., time-varying complimentary filter, Direction-Cosine-Matrix estimation) using IMU sensors for accurate joint angle estimation. A preliminary clinical study conducted at the UC San Francisco demonstrated the effectiveness of NMAS in rehabilitation of patients with walking problems.
+%
+%\textbf{Broad Impact}: This proposed system will provide a comprehensive health care system to benefit both patients and health service providers by enabling mobile and tele-rehabilitation. Three graduate students (one of whom graduated with a Ph.D. degree), two postdoctoral researchers, and five undergraduate students have directly benefited from this project in PI Tomizuka's lab.  Four journal papers \cite{kong2012compact, bae2013tele, bae2013network, zhang2015modified} and many conference papers \cite{zhang2012modified, bae2012network, bae2012compensation, zhang2012design, zhang2013compensation, kanjanapas2013human, wei2013rt} have resulted from this project. We worked with multimedia group of the National Science Foundation to make a video of the wireless health monitoring system developed in this project \cite{nsf-video}.
+
+
+\paragraph*{\textit{A Hybrid Control Systems Approach to Brain-Machine Interfaces for Exoskeleton Control}} (NSF-EFRI \#1137267, September 15, 2011 - August 31, 2015, \$2,000,000). 
+
+\textbf{Intellectual Merit}: This interdisciplinary research addressed three major innovations (neurophysiology and brain-machine interfaces (BMI), hybrid control systems, and exoskeleton design and control) to significantly advance our understanding of fundamental principles in the neural control of movement in scenarios that involve physical interactions with the world. PI Tomizuka is mainly responsible for the third innovation (exoskeleton design and control). Major accomplishments in PI Tomizuka's lab include:
+1) A passive 6-DOF upper-limb exoskeleton for macaques to test with the animals, 2) A cable-driven series elastic actuator and a torque-mode control algorithm for it, 3) An actuated version of the exoskeleton, and 4) An automatic 3D target positioner for BMI experiment use. The hybrid system approach is investigated for the BMI aspect (neural control and musculoskeletal model control).
+ 
+
+\textbf{Broad Impact}: The three major innovations have been synthesized into a single new paradigm unifying the brain, biomechanics, and behavior. Two graduate students and four undergraduate students benefited from this project in PI Tomizuka's lab. The two graduate students completed their Ph.D. degrees.   Three journal papers \cite{lu2016design, lu2016interactive, haninger2016modelling} and several conference papers \cite{lu2013kinematic, haniger2014kinematic, lu2014passive, lu2014design, lu2015design, haninger2016motion, haninger2016robust} have resulted from this project. 
+
+\paragraph*{\textit{Design of Mechanism and Control Strategies for Assistive Systems to Remedy the Decrease in Physical Strength of the Aged and the Disabled}} (CMMI \#1362172, August 1, 2014-July 31, 2017, \$307,074.00)
+
+\textbf{Intellectual Merit}:  Integration of design and control of human assistive systems is emphasized in this research. The control problem is formulated from the viewpoint of a hybrid system. The research encompasses the segmentation of the dynamics of the human assistive system, the identification of transitions, and the development of control structures appropriate for each segment. To date, we have accomplished 1) development of a novel low-powered actuator for providing assistance; 2) Completion of a shoulder and elbow exoskeleton based on these low-power actuators; 3) Development of an algorithm for classifying the wearer's state whether the wearer has a load; and 4) Initial development of a controller for the device with the low-powered actuators by applying hybrid system theory.  Three conference papers have been published as a result of this project \cite{matthew2015introduction, matthew2015initial, matthew2015optimal}.
+
+\textbf{Broad Impacts}: Existing work into assistive devices looks at either entirely passive assistance or fully active assistance. This new control framework uses individualized modeling to develop an active/passive actuator that can provide assistance without a large energy draw. Two Ph.D. students are working on this project and one of them graduated recently with his Ph.D. Four undergraduate students are participating.  
